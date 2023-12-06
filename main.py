@@ -4,16 +4,19 @@ from random import choice
 from os import system
 
 def get_person():
+    '''Gets random person from game_data dict'''
     return choice(data)
 
 
 def display_person(person, letter):
+    '''Displays person picked from list'''
     print(
         f"Person {letter}: {person['name']}, a {person['description']}, from {person['country']}"
     )
 
 
 def display_choices(person1, person2, score):
+    '''Prints games screen with choices'''
     system('cls')
     print(logo)
     print("")
@@ -27,6 +30,7 @@ def display_choices(person1, person2, score):
 
 
 def check_higher(person1, person2):
+    '''Checks to see who has higher follower count and returns either a or b depending on who is higher.'''
     if person1["follower_count"] > person2["follower_count"]:
         return 'a'
     else:
@@ -34,6 +38,7 @@ def check_higher(person1, person2):
     
 
 def play_game(score):
+    ''' Starts the game'''
     game_over = False
     while not game_over:
         person1 = get_person()
